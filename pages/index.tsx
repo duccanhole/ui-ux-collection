@@ -2,8 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { Button } from "@nextui-org/react";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +16,6 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          {/* <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p> */}
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -96,7 +90,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
+            <h2 className="text-red-500">
               Templates <span>-&gt;</span>
             </h2>
             <p className={inter.className}>

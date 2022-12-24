@@ -5,11 +5,6 @@ import Menu from "../components/menu";
 
 export default function DefaultLayout({ children }: any) {
   const [modal, setModal] = useState<boolean>(false);
-  const BtnStyle: React.CSSProperties = {
-    position: "fixed",
-    top: "10px",
-    right: "10px",
-  };
   const ModalStyle: React.CSSProperties = {
     backgroundColor: "rgb(66,66,66, 0.7)",
   };
@@ -19,9 +14,8 @@ export default function DefaultLayout({ children }: any) {
         <Button
           auto
           shadow
-          color="primary"
+          className="fixed right-1 top-1 bg-blue-400"
           icon={<BsFillGrid3X3GapFill />}
-          style={BtnStyle}
           onPress={() => {
             setModal(true);
           }}

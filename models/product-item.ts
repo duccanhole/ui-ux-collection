@@ -3,6 +3,6 @@ import { ReactElement } from "react";
 
 export default interface IProductItem {
     title: string;
-    icon: ReactElement;
+    iconSrc: string;
     path: string;
 }
