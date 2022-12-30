@@ -1,8 +1,9 @@
 import Head from "next/head";
 import { Text, Grid, Image, Button } from "@nextui-org/react";
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import { BsBoxArrowUpRight, BsGithub } from "react-icons/bs";
 import useMedia from "../repositories/useMedia";
+import * as h from "../styles/Home.module.css";
 
 export default function Home() {
   const pageStyle: CSSProperties = {
@@ -34,21 +35,21 @@ export default function Home() {
           >
             <Grid md={7} sm={10} className="flex flex-col">
               <div>
-                <Text h1 size={isMobile? 40: 60} weight="bold">
+                <Text h1 size={isMobile ? 40 : 60} weight="bold">
                   UI/UX
                   <br />
                   COLLECTION
                 </Text>
               </div>
               <div className="mt-2">
-                <Text size={20}>
+                <Text size={20} className={h.default.typed}>
                   Hi, adventurer.
-                  <br />
+                </Text>
+                <Text size={20}>
                   This is place where I study UI/UX, design system and implement
                   what I learned.
-                  <br />
-                  Ready? Let's start !
                 </Text>
+                <Text size={20}>Ready? Let's start !</Text>
               </div>
               <div className="mt-6 flex flex-wrap">
                 <Button className="mt-2 bg-orange-700">

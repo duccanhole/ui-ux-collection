@@ -1,0 +1,24 @@
+.typed {
+  overflow: hidden;
+  display: inline-block;
+  /* white-space: no-wrap; */
+  width: 5%;
+  /* animation: typing 3s steps(20, end) 1.5s forwards; */
+}
+
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: black;
+  }
+}
