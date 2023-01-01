@@ -2,11 +2,20 @@ import Head from "next/head";
 import { Text, Grid, Image, Button } from "@nextui-org/react";
 import { CSSProperties, useEffect, useState } from "react";
 import { BsBoxArrowUpRight, BsGithub } from "react-icons/bs";
+import Typewriter from "typewriter-effect";
 import useMedia from "../repositories/useMedia";
-import * as h from "../styles/Home.module.css";
 
+const line1 = "Hi, adventurer.",
+  line2 =
+    "This is place where I study UI/UX, design system and implement what I learned.",
+  line3 = "Ready? Let's start!!!";
+function sleep(time: number) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
 export default function Home() {
-  const [text, setText] = useState<string>("");
+  const [text1, setText1] = useState<string>("");
+  const [text2, setText2] = useState<string>("");
+  const [typing, setTyping] = useState<boolean>(true);
   const pageStyle: CSSProperties = {
     background: "url('/glassmorphism-background.png')",
     backgroundRepeat: "no-repeat",
@@ -19,10 +28,17 @@ export default function Home() {
   };
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setText((val) => val + "a");
-    }, 800);
+      if (text1 !== line1 && typing) {
+        setText1(line1.slice(0, text1.length + 1));
+      } else if (text1 === line1 && typing) {
+        sleep(1500).then(() => setTyping(false));
+      }
+      // else if (text2 !== line2) {
+      //   setText2(line2.slice(0, text2.length + 1));
+      // }
+    }, 100);
     return () => clearTimeout(timeout);
-  }, [text]);
+  }, [text1]);
   return (
     <>
       <Head>
@@ -42,32 +58,31 @@ export default function Home() {
           >
             <Grid md={7} sm={10} className="flex flex-col">
               <div>
-                <Text h1 size={isMobile ? 40 : 60} weight="bold">
+                <Text h1 size={isMobile ? 35 : 60} weight="bold">
                   UI/UX
                   <br />
                   COLLECTION
                 </Text>
               </div>
               <div className="mt-2">
-                <Text
-                  size={20}
-                  className={`${h.default.typed} ${h.default.typed1}`}
-                >
-                  Hi, adventurer.
+                <Text size={20}>
+                  <Typewriter
+                    options={{
+                      strings: line1,
+                      cursor: "",
+                    }}
+                  />
                 </Text>
-                <Text
-                  size={20}
-                  className={`${h.default.typed} ${h.default.typed2}`}
-                >
-                  This is place where I study UI/UX, design system and implement
-                  what I learned.
+                <Text size={20}>
+                  {/* <Typewriter
+                    options={{
+                      strings: line2,
+                      autoStart: true,
+                      cursorClassName: "hidden"
+                    }}
+                  />*/}
                 </Text>
-                <Text
-                  size={20}
-                  className={`${h.default.typed} ${h.default.typed3}`}
-                >
-                  Ready? Let's start !
-                </Text>
+                <Text size={20}>Ready? Let's start !</Text>
               </div>
               <div className="mt-6 flex flex-wrap">
                 <Button className="mt-2 bg-orange-700">
