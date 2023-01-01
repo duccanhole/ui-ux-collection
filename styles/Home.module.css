@@ -1,17 +1,29 @@
 .typed {
+  white-space: nowrap;
   overflow: hidden;
-  display: inline-block;
-  /* white-space: no-wrap; */
-  width: 5%;
-  /* animation: typing 3s steps(20, end) 1.5s forwards; */
+  text-overflow: clip;
+  width: 0%;
+}
+/* 4.5s */
+.typed1 {
+  animation: typing 3s steps(40, end) 1.5s forwards;
+}
+/* 8s */
+.typed2 {
+  animation: typing 3.5s steps(40, end) 4.5s forwards;
+}
+/*  */
+.typed3 {
+  animation: typing 3s steps(40, end) 8s forwards;
 }
 
 @keyframes typing {
-  from {
+  0% {
     width: 0%;
   }
-  to {
+  100% {
     width: 100%;
+    white-space: normal;
   }
 }
 @keyframes blink {

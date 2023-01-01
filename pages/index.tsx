@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { Text, Grid, Image, Button } from "@nextui-org/react";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { BsBoxArrowUpRight, BsGithub } from "react-icons/bs";
 import useMedia from "../repositories/useMedia";
 import * as h from "../styles/Home.module.css";
 
 export default function Home() {
+  const [text, setText] = useState<string>("");
   const pageStyle: CSSProperties = {
     background: "url('/glassmorphism-background.png')",
     backgroundRepeat: "no-repeat",
@@ -16,6 +17,12 @@ export default function Home() {
   const onViewSource = function () {
     window.open("https://github.com/duccanhole/ui-ux-collection", "_blank");
   };
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setText((val) => val + "a");
+    }, 800);
+    return () => clearTimeout(timeout);
+  }, [text]);
   return (
     <>
       <Head>
@@ -42,14 +49,25 @@ export default function Home() {
                 </Text>
               </div>
               <div className="mt-2">
-                <Text size={20} className={h.default.typed}>
+                <Text
+                  size={20}
+                  className={`${h.default.typed} ${h.default.typed1}`}
+                >
                   Hi, adventurer.
                 </Text>
-                <Text size={20}>
+                <Text
+                  size={20}
+                  className={`${h.default.typed} ${h.default.typed2}`}
+                >
                   This is place where I study UI/UX, design system and implement
                   what I learned.
                 </Text>
-                <Text size={20}>Ready? Let's start !</Text>
+                <Text
+                  size={20}
+                  className={`${h.default.typed} ${h.default.typed3}`}
+                >
+                  Ready? Let's start !
+                </Text>
               </div>
               <div className="mt-6 flex flex-wrap">
                 <Button className="mt-2 bg-orange-700">
