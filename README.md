@@ -37,6 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Portfolio
 - Chat App (UI)
 - Admin dashboard
-- Horse race chess game
+- Horse race chess game (or an other realtime game)
 - Todos list (drag, drop)
+- 3d model (threejs,...)
 ...
