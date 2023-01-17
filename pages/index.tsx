@@ -7,15 +7,13 @@ import useMedia from "../repositories/useMedia";
 
 const line1 = "Hi, adventurer.",
   line2 =
-    "This is place where I study UI/UX, design system and implement what I learned.",
-  line3 = "Ready? Let's start!!!";
+    "This is place where I study UI/UX, design system and implement what I have learned.",
+  line3 = "Ready ?",
+  line4 = "Let's start!!!";
 function sleep(time: number) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 export default function Home() {
-  const [text1, setText1] = useState<string>("");
-  const [text2, setText2] = useState<string>("");
-  const [typing, setTyping] = useState<boolean>(true);
   const pageStyle: CSSProperties = {
     background: "url('/glassmorphism-background.png')",
     backgroundRepeat: "no-repeat",
@@ -26,19 +24,6 @@ export default function Home() {
   const onViewSource = function () {
     window.open("https://github.com/duccanhole/ui-ux-collection", "_blank");
   };
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (text1 !== line1 && typing) {
-        setText1(line1.slice(0, text1.length + 1));
-      } else if (text1 === line1 && typing) {
-        sleep(1500).then(() => setTyping(false));
-      }
-      // else if (text2 !== line2) {
-      //   setText2(line2.slice(0, text2.length + 1));
-      // }
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [text1]);
   return (
     <>
       <Head>
@@ -64,25 +49,23 @@ export default function Home() {
                   COLLECTION
                 </Text>
               </div>
-              <div className="mt-2">
-                <Text size={20}>
-                  <Typewriter
-                    options={{
-                      strings: line1,
-                      cursor: "",
-                    }}
-                  />
-                </Text>
-                <Text size={20}>
-                  {/* <Typewriter
-                    options={{
-                      strings: line2,
-                      autoStart: true,
-                      cursorClassName: "hidden"
-                    }}
-                  />*/}
-                </Text>
-                <Text size={20}>Ready? Let's start !</Text>
+              <div className="mt-2 text-xl">
+                <Typewriter
+                  options={{
+                    cursor: "",
+                    delay: 50
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(`<div>${line1}</div>`)
+                      .typeString(`<div>${line2}</div>`)
+                      .pauseFor(1500)
+                      .typeString(`<div>${line3}</div>`)
+                      .pauseFor(800)
+                      .typeString(`<div>${line4}</div>`)
+                      .start();
+                  }}
+                />
               </div>
               <div className="mt-6 flex flex-wrap">
                 <Button className="mt-2 bg-orange-700">
