@@ -1,19 +1,19 @@
 import Head from "next/head";
 import { Text, Grid, Image, Button } from "@nextui-org/react";
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect } from "react";
 import { BsBoxArrowUpRight, BsGithub } from "react-icons/bs";
 import Typewriter from "typewriter-effect";
 import useMedia from "../repositories/useMedia";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { switchMenuAction } from "../store/controlSlice";
 
 const line1 = "Hi, adventurer.",
   line2 =
     "This is place where I study UI/UX, design system and implement what I have learned.",
   line3 = "Ready ?",
-  line4 = "Let's start!!!";
-function sleep(time: number) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
+  line4 = "Let's start !!!";
 export default function Home() {
+  const dispatch = useDispatch()
   const pageStyle: CSSProperties = {
     background: "url('/glassmorphism-background.png')",
     backgroundRepeat: "no-repeat",
@@ -24,6 +24,9 @@ export default function Home() {
   const onViewSource = function () {
     window.open("https://github.com/duccanhole/ui-ux-collection", "_blank");
   };
+  const onExplore = () => {
+    // dispatch(switchMenuAction(true))
+  }
   return (
     <>
       <Head>
@@ -67,8 +70,8 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="mt-6 flex flex-wrap">
-                <Button className="mt-2 bg-orange-700">
+              <div className="flex flex-wrap">
+                <Button className="mt-2 bg-orange-700" onPress={onExplore}>
                   <BsBoxArrowUpRight className="mr-2" />
                   Explore now
                 </Button>

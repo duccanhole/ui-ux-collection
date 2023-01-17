@@ -1,13 +1,19 @@
 import { Button, Modal } from "@nextui-org/react";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import Menu from "../components/menu";
+// import { useSelector } from "react-redux/es/exports";
+// import { AppState } from "../store";
 
 export default function DefaultLayout({ children }: any) {
+  // const gMenuValue = useSelector((state: AppState) => state.control.openMenu);
   const [modal, setModal] = useState<boolean>(false);
   const buttonStyle: CSSProperties = {
-    border: '1px solid white'
-  }
+    border: "1px solid white",
+  };
+  // useEffect(() => {
+  //   setModal(gMenuValue);
+  // }, [gMenuValue]);
   return (
     <>
       {!modal ? (
