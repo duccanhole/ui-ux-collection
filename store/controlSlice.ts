@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppState } from ".";
 
 export interface ControlState {
   openMenu: boolean;
