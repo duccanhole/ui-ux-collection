@@ -20,7 +20,7 @@ export default function Home() {
     backgroundSize: "cover",
     padding: "5%",
   };
-  const isMobile = useMedia("(max-width: 400px)");
+  const isMobile = useMedia("(max-width: 480px)");
   const onViewSource = function () {
     window.open("https://github.com/duccanhole/ui-ux-collection", "_blank");
   };
