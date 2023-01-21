@@ -11,10 +11,10 @@ export default function ChatTab() {
     setConversationList(new ConversationRepo().getAll());
   }, []);
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col overflow-y-auto">
       {conversationList.map((item, index) => (
         <Badge
-          className="mt-3"
+          className="mb-3 mt-2"
           color="error"
           placement="top-left"
           key={index}

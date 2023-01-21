@@ -10,7 +10,7 @@ export default function () {
           <div className="border-x-2 border-gray-400 max-[480px]:col-span-4 h-screen">
             <ChatMenu/>
           </div>
-          <div className="border-2 border-black col-span-3 max-[480px]:invisible">this is chat room</div>
+          <div className="col-span-3 max-[480px]:invisible">this is chat room</div>
         </div>
       </main>
     </>

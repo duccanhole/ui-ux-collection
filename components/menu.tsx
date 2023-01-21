@@ -9,7 +9,7 @@ const product: IProductItem[] = [
     path: "/",
   },
   {
-    title: "app test",
+    title: "Chat",
     iconSrc: "/icon/icons8-chat-icon.png",
     path: "/chat",
   },
