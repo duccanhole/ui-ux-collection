@@ -23,7 +23,7 @@ const name = [
 export default function generateRandomData(amount: number = 15) {
   const data: IConversation[] = [];
   for (let i = 0; i < amount; i++) {
-    const randomLength = Math.floor(Math.random() * 25)+1;
+    const randomLength = Math.floor(Math.random() * 25)+5;
     const randomContent = content.slice(
       Math.floor(Math.random() * 15),
       randomLength
