@@ -22,7 +22,7 @@ export default function ChatMenu() {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <div className="h-full">
-      <div className="flex justify-around bg-gray-400 py-3">
+      <div className="flex justify-around bg-white/50 py-3">
         {buttonControl.map((item, index) => (
           <Button
             key={index}
@@ -44,7 +44,7 @@ export default function ChatMenu() {
           <div
             className="overflow-y-auto"
             key={"tab" + index}
-            style={{ height: "85%" }}
+            style={{ height: "87%" }}
           >
             {item}
           </div>
