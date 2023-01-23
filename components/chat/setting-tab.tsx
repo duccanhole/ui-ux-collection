@@ -32,7 +32,7 @@ export default function SettingTab() {
           <FiLock className="mr-2" /> Privacy and Security
         </Button>
       </div>
-      <div className="my-auto">
+      <div className="my-3">
         <Button bordered color="error" className="w-3/4 mx-auto">
           <FiLogOut className="mr-2" /> Log out
         </Button>

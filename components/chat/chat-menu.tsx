@@ -21,7 +21,7 @@ const tabs = [<ChatTab />, <FriendTab />, <SettingTab />];
 export default function ChatMenu() {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
-    <div className="h-full">
+    <div className="h-full flex flex-col">
       <div className="flex justify-around bg-white/50 py-3">
         {buttonControl.map((item, index) => (
           <Button
@@ -41,11 +41,7 @@ export default function ChatMenu() {
       {tabs.map((item, index) => {
         if (index !== selectedTab) return null;
         return (
-          <div
-            className="overflow-y-auto"
-            key={"tab" + index}
-            style={{ height: "87%" }}
-          >
+          <div className="overflow-y-auto" key={"tab" + index}>
             {item}
           </div>
         );

@@ -19,25 +19,31 @@ const name = [
   "Julian Andersen",
   "Leona Hartman",
 ];
+const status = ["online", "offline"];
 
 export default function generateRandomData(amount: number = 15) {
   const data: IConversation[] = [];
   for (let i = 0; i < amount; i++) {
-    const randomLength = Math.floor(Math.random() * 25)+5;
+    const randomLength = Math.floor(Math.random() * 25) + 5;
     const randomContent = content.slice(
       Math.floor(Math.random() * 15),
       randomLength
     );
-    const randomName = name[Math.floor(Math.random() * (name.length - 1))];
+    const randomName = name[Math.floor(Math.random() * (name.length))];
+    const randomStatus = status[Math.floor(Math.random() * (status.length))]
     data.push({
-      id: i+1,
+      id: i + 1,
       from: {
         userName: randomName,
-        avatarSrc: "https://i.pravatar.cc/"
+        avatarSrc:
+          Math.floor(Math.random() * 2) === 1
+            ? "https://i.pravatar.cc/?u=" + i
+            : "",
       },
-      unseen: Math.floor(Math.random() * 100),
-      lastMessage: randomContent
-    })
+      unseen: Math.floor(Math.random() * 10),
+      lastMessage: randomContent,
+      status: randomStatus
+    });
   }
-  return data
+  return data;
 }
