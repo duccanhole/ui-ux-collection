@@ -1,16 +1,16 @@
-import { Avatar, Badge } from "@nextui-org/react";
-import { IConversation } from "../../models/chat/conversation";
+import { Badge } from "@nextui-org/react";
+import { IConversation } from "../../../models/chat/conversation";
+import UserAvatar from "../user-avatar";
+
+interface PropType {
+  conversation: IConversation;
+  onChatItemClick: () => void;
+}
 
 export default function ChatTabItem({
   conversation,
-}: {
-  conversation: IConversation;
-}) {
-  const getAvatarName = (name: string) => {
-    const nameArr = name.trim().split(" ");
-    const lastName = nameArr[nameArr.length - 1];
-    return lastName[0].toUpperCase();
-  };
+  onChatItemClick,
+}: PropType) {
   const getLastMessage = (message: string) => {
     return message.length <= 15 ? message : message.slice(0, 15) + "...";
   };
@@ -22,8 +22,14 @@ export default function ChatTabItem({
   ) => {
     return status === "online" ? "success" : undefined;
   };
+  const test = () => {
+    alert("clcik")
+  }
   return (
-    <div className="flex my-2 px-2 py-3 hover:bg-gray-400/60 cursor-pointer">
+    <div
+      className="flex my-2 px-2 py-3 hover:bg-gray-400/60 cursor-pointer"
+      onClick={() => onChatItemClick()}
+    >
       <div>
         <Badge
           color={getStatus(conversation.status)}
@@ -33,11 +39,7 @@ export default function ChatTabItem({
           placement="bottom-right"
           size="lg"
         >
-          <Avatar
-            src={conversation.from.avatarSrc}
-            text={getAvatarName(conversation.from.userName)}
-            size="lg"
-          />
+          <UserAvatar user={conversation.from} />
         </Badge>
       </div>
       <div className="grow px-3">
