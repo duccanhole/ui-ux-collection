@@ -6,10 +6,6 @@ import ChatTabItem from "./chat-tab-item";
 export default function ChatTab() {
   // declare variable
   const [conversationList, setConversationList] = useState<IConversation[]>([]);
-  // logic 
-  const test = (item: IConversation) => {
-    alert(item.from.userName)
-  }
   // first load
   useEffect(() => {
     setConversationList(new ConversationRepo().getAll());
@@ -17,7 +13,7 @@ export default function ChatTab() {
   return (
     <div className="flex flex-col overflow-y-auto">
       {conversationList.map((item, index) => (
-        <ChatTabItem key={index} conversation={item} onChatItemClick={() => test(item)} />
+        <ChatTabItem key={index} conversation={item} />
       ))}
     </div>
   );

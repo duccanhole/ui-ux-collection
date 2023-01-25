@@ -1,16 +1,15 @@
 import { Badge } from "@nextui-org/react";
+import { useDispatch } from "react-redux";
 import { IConversation } from "../../../models/chat/conversation";
+import { openRoomChat } from "../../../store/chatSlice";
 import UserAvatar from "../user-avatar";
 
 interface PropType {
   conversation: IConversation;
-  onChatItemClick: () => void;
 }
 
-export default function ChatTabItem({
-  conversation,
-  onChatItemClick,
-}: PropType) {
+export default function ChatTabItem({ conversation }: PropType) {
+  const dispatch = useDispatch();
   const getLastMessage = (message: string) => {
     return message.length <= 15 ? message : message.slice(0, 15) + "...";
   };
@@ -22,13 +21,13 @@ export default function ChatTabItem({
   ) => {
     return status === "online" ? "success" : undefined;
   };
-  const test = () => {
-    alert("clcik")
-  }
+  const onChatItemClick = () => {
+    dispatch(openRoomChat(conversation));
+  };
   return (
     <div
       className="flex my-2 px-2 py-3 hover:bg-gray-400/60 cursor-pointer"
-      onClick={() => onChatItemClick()}
+      onClick={onChatItemClick}
     >
       <div>
         <Badge
