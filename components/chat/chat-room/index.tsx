@@ -21,9 +21,11 @@ export default function ChatRoom() {
     <div className="flex h-full">
       {conversationData ? (
         <Room
+          key={conversationData.id}
           user={conversationData.from}
           status={conversationData.status}
           lastMessage={conversationData.lastMessage}
+          roomId={conversationData.id}
         />
       ) : (
         <div className="m-auto">
