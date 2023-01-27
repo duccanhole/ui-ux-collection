@@ -1,6 +1,8 @@
 import { Badge } from "@nextui-org/react";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { IConversation } from "../../../models/chat/conversation";
+import useMedia from "../../../repositories/useMedia";
 import { openRoomChat } from "../../../store/chatSlice";
 import UserAvatar from "../user-avatar";
 
@@ -9,6 +11,8 @@ interface PropType {
 }
 
 export default function ChatTabItem({ conversation }: PropType) {
+  const router = useRouter();
+  const isMobile = useMedia("(max-width:480px)");
   const dispatch = useDispatch();
   const getLastMessage = (message: string) => {
     return message.length <= 15 ? message : message.slice(0, 15) + "...";
@@ -22,7 +26,8 @@ export default function ChatTabItem({ conversation }: PropType) {
     return status === "online" ? "success" : undefined;
   };
   const onChatItemClick = () => {
-    dispatch(openRoomChat(conversation));
+    if (isMobile) router.push("/chat/" + conversation.id);
+    else dispatch(openRoomChat(conversation));
   };
   return (
     <div

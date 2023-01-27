@@ -1,9 +1,7 @@
-import ChatMenu from "../components/chat/chat-menu";
-import ChatRoom from "../components/chat/chat-room";
-import useMedia from "../repositories/useMedia";
+import ChatMenu from "../../components/chat/chat-menu";
+import ChatRoom from "../../components/chat/chat-room";
 
 export default function () {
-  const isMobile = useMedia("(max-width: 500px)");
   return (
     <>
       <main className="bg-gray-300">
