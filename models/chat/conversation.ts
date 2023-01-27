@@ -6,6 +6,11 @@ export interface IConversation {
   status: string;
 }
 
+export interface IConversationDetail {
+  from: "other" | "me";
+  message: string;
+}
+
 export interface IUser {
   avatarSrc: string;
   userName: string;

@@ -1,7 +1,6 @@
-import { Badge, Card, User } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { IConversation } from "../../models/chat/conversation";
-import ConversationRepo from "../../repositories/chat/conversation";
+import { IConversation } from "../../../models/chat/conversation";
+import ConversationRepo from "../../../repositories/chat/conversation";
 import ChatTabItem from "./chat-tab-item";
 
 export default function ChatTab() {

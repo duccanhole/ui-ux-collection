@@ -56,9 +56,9 @@ export default function Home() {
                     typewriter
                       .typeString(`<div>${line1}</div>`)
                       .typeString(`<div>${line2}</div>`)
-                      .pauseFor(1500)
-                      .typeString(`<div>${line3}</div>`)
                       .pauseFor(800)
+                      .typeString(`<div>${line3}</div>`)
+                      .pauseFor(500)
                       .typeString(`<div>${line4}</div>`)
                       .start();
                   }}
