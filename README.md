@@ -7,4 +7,5 @@
 - 3d model (threejs,...)
 - visual something (maze game, algorithm, ...)
 - Stock app (reference: finnhub.io)
+- Vocal Quizz (app to learn vocabulary englist)
 ...
