@@ -77,7 +77,7 @@ export default function ChatBox({ lastMess, roomId }: PropType) {
                   className={item.from === "other" ? "" : "flex justify-end"}
                 >
                   <Card
-                    variant="flat"
+                    variant="bordered"
                     className="max-w-lg m-2 w-fit"
                   >
                     <Card.Body>

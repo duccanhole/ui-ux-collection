@@ -10,7 +10,7 @@ import {
 
 const defaultData: IConversation = {
   from: {
-    userName: "a",
+    userName: "Null User",
     avatarSrc: "",
   },
   id: 0,
