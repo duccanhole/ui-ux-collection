@@ -1,11 +1,9 @@
-import { ReactHTMLElement } from "react";
 import { ITask } from "../../mock-data/todo/task";
 import DragComponent from "./drag-component";
 import DropComponent from "./drop-component";
-import TaskComponent from "./task";
 
 interface PropType {
-  title: "To do" | "Doing" | "Completed";
+  title: string;
   taskList: ITask[];
   boxId: number;
 }
@@ -20,6 +18,7 @@ export default function TaskBox({ title, boxId, taskList }: PropType) {
             <DragComponent
               draggableId={"box-" + boxId + "-task" + index}
               index={index}
+              key={index}
             >
               <div>{item.taskName}</div>
             </DragComponent>
