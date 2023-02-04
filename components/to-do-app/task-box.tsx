@@ -12,11 +12,15 @@ export default function TaskBox({ title, boxId, taskList }: PropType) {
   return (
     <div className="border-2 border-gray-300">
       <h3>{title}</h3>
-      <DropComponent droppableId={"taskbox-" + boxId}>
+      <DropComponent
+        droppableId={boxId.toString()}
+        type="task"
+        direction="vertical"
+      >
         {taskList.map((item, index) => {
           return (
             <DragComponent
-              draggableId={"box-" + boxId + "-task" + index}
+              draggableId={item.id.toString()}
               index={index}
               key={index}
             >
