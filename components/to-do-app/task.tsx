@@ -1,24 +1,19 @@
+import { Card, Text } from "@nextui-org/react";
 import { Draggable, DraggableProps } from "react-beautiful-dnd";
+import { ITask } from "../../mock-data/todo/task";
 
 interface PropType {
-  content?: string;
-  dragId: number;
+  task: ITask;
+  boxId: string | number;
 }
 
-const TaskComponent: React.FC<PropType> = ({ content, dragId }: PropType) => {
+const TaskComponent: React.FC<PropType> = ({ task, boxId }: PropType) => {
   return (
-    <Draggable draggableId={"task-" + dragId} index={dragId}>
-      {(provided) => (
-        <div
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-          className="border-2 broder-gray-300"
-        >
-          {content}
-        </div>
-      )}
-    </Draggable>
+    <Card className="my-2">
+      <Card.Body>
+        <Text>{task.taskName}</Text>
+      </Card.Body>
+    </Card>
   );
 };
 export default TaskComponent;

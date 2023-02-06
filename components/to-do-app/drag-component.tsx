@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { ReactNode } from "react";
 import { Draggable, DraggableProps } from "react-beautiful-dnd";
 
@@ -6,6 +7,7 @@ interface PropType extends Omit<DraggableProps, "children"> {
 }
 
 export default function DragComponent({ children, ...props }: PropType) {
+  if (!React.isValidElement(children)) return <div />;
   return (
     <Draggable {...props}>
       {(provided) => {
