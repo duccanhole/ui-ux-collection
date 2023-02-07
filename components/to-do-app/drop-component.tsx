@@ -10,7 +10,11 @@ export default function DropComponent({ children, ...props }: PropType) {
     <Droppable {...props}>
       {(provided, snapshot) => {
         return (
-          <div {...provided.innerRef} ref={provided.innerRef}>
+          <div
+            {...provided.droppableProps}
+            {...provided.innerRef}
+            ref={provided.innerRef}
+          >
             {children}
             {provided.placeholder}
           </div>

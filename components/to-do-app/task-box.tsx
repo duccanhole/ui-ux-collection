@@ -1,6 +1,7 @@
 import { ITask } from "../../mock-data/todo/task";
 import DragComponent from "./drag-component";
 import DropComponent from "./drop-component";
+import TaskComponent from "./task";
 
 interface PropType {
   title: string;
@@ -10,17 +11,22 @@ interface PropType {
 
 export default function TaskBox({ title, boxId, taskList }: PropType) {
   return (
-    <div className="border-2 border-gray-300">
-      <h3>{title}</h3>
-      <DropComponent droppableId={boxId.toString()} type="task">
+    <div className="border-2 border-gray-300 bg-white/70 rounded-lg shadow-xl">
+      <h3 className="bg-gray-300 p-2 text-xl font-medium">{title}</h3>
+      <DropComponent
+        droppableId={boxId.toString()}
+        type="task"
+        direction="vertical"
+      >
         {taskList.map((item, index) => {
           return (
+            // key of drag-component must be unique
             <DragComponent
               draggableId={item.id.toString()}
               index={index}
-              key={index}
+              key={item.id.toString()}
             >
-              <div className="bg-white/50 border-2 boder-gray-300">{item.taskName}</div>
+              <TaskComponent task={item} boxId={boxId} />
             </DragComponent>
           );
         })}
