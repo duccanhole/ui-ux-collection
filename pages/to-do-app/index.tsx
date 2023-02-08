@@ -58,7 +58,7 @@ export default function ToDoAppPage() {
       sourceIndex = source.index;
     const desArr = data[desId].taskList,
       sourceArr = data[sourceId].taskList;
-    // if drag - drog in a box, swap it
+    // if user drag-drop component to same postision, do nothing
     if (desId === sourceId && desIndex === sourceIndex) return;
     const item = sourceArr[sourceIndex];
     // first, remove that item in source

@@ -10,7 +10,7 @@ export default function DragComponent({ children, ...props }: PropType) {
   if (!React.isValidElement(children)) return <div />;
   return (
     <Draggable {...props}>
-      {(provided) => {
+      {(provided, snap) => {
         return (
           <div
             ref={provided.innerRef}

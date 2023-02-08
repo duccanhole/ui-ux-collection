@@ -1,4 +1,5 @@
 import { Card, Text } from "@nextui-org/react";
+import { useState } from "react";
 import { ITask } from "../../mock-data/todo/task";
 
 interface PropType {
@@ -8,11 +9,7 @@ interface PropType {
 
 const TaskComponent = ({ task, boxId }: PropType) => {
   return (
-    <Card variant="flat" className="my-2">
-      <Card.Body>
-        <Text>{task.taskName}</Text>
-      </Card.Body>
-    </Card>
+    <div className="bg-white mx-2 my-2 p-2 rounded-lg shadow">{task.taskName}</div>
   );
 };
 export default TaskComponent;
