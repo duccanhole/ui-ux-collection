@@ -3,13 +3,27 @@ import DragComponent from "./drag-component";
 import DropComponent from "./drop-component";
 import TaskComponent from "./task";
 import { CgPen } from "react-icons/cg";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { Dropdown } from "@nextui-org/react";
 
 interface PropType {
   title: string;
   taskList: ITask[];
   boxId: number;
 }
+
+const colors = [
+  { name: "gray", value: "#9ca3af" },
+  { name: "red", value: "#f87171" },
+  { name: "orange", value: "#fb923c" },
+  { name: "yellow", value: "#fcd34d" },
+  { name: "blue", value: "#60a5fa" },
+  { name: "green", value: "#10b981" },
+  { name: "teal", value: "#14b8a6" },
+  { name: "indigo", value: "#818cf8" },
+  { name: "violet", value: "#a78bfa" },
+  { name: "purple", value: "#c084fc" },
+];
 
 export default function TaskBox({ title, boxId, taskList }: PropType) {
   const [color, setColor] = useState("white");
@@ -31,9 +45,31 @@ export default function TaskBox({ title, boxId, taskList }: PropType) {
           {title}: {taskList.length}
         </div>
         <div className="text-base">
-          <button className="inline">
-            <CgPen shapeRendering={26} />
-          </button>
+          <Dropdown>
+            <Dropdown.Trigger>
+              <button className="inline">
+                <CgPen shapeRendering={26} />
+              </button>
+            </Dropdown.Trigger>
+            <Dropdown.Menu>
+              {colors.map((item, index) => (
+                <Dropdown.Item key={index}>
+                  <div
+                    className="flex cursor-pointer"
+                    onClick={() => {
+                      setColor(item.value);
+                    }}
+                  >
+                    <div
+                      className="rounded-lg my-auto w-4 h-4"
+                      style={{ backgroundColor: item.value }}
+                    ></div>
+                    <div className="grow text-center">{item.name}</div>
+                  </div>
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
       <DropComponent

@@ -8,17 +8,14 @@ const mockData: ITask[] = [
   {
     taskName: "one",
     id: 0,
-    labelColor: "",
   },
   {
     taskName: "two",
     id: 1,
-    labelColor: "",
   },
   {
     taskName: "three",
     id: 3,
-    labelColor: "",
   },
 ];
 const boxTasks = [
@@ -74,7 +71,13 @@ export default function ToDoAppPage() {
   return (
     <>
       <main className="bg-pink-200 h-screen">
-        <Container className="pt-5">
+        <Container className="p-5">
+          <div className="py-4">
+            <input className="py-2 pl-2 rounded-lg w-75 shadow-lg"></input>
+            <button className="mx-4 bg-black/80 text-white/80 rounded-lg p-2 active:scale-90 shadow-lg">
+              create plan
+            </button>
+          </div>
           <DragDropContext onDragEnd={onDragEnd}>
             <div className="grid sm:grid-cols-3 gap-3 grid-cols-1">
               {DOMLoader
