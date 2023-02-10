@@ -15,7 +15,7 @@ const mockData: ITask[] = [
   },
   {
     taskName: "three",
-    id: 3,
+    id: 2,
   },
 ];
 const boxTasks = [
@@ -43,6 +43,7 @@ function removeTask(index: number, arr: any[]) {
 export default function ToDoAppPage() {
   const [DOMLoader, setDOMLoader] = useState(false);
   const [data, setData] = useState(boxTasks);
+  const [taskName, setTaskName] = useState("");
   // logic handle when user finish drag event
   const onDragEnd = (result: DropResult) => {
     const { destination, source } = result;
@@ -64,6 +65,44 @@ export default function ToDoAppPage() {
     newData[desId].taskList = insertTask(desIndex, item, desArr);
     setData(newData);
   };
+  // handle menu action
+  const updateTask = (action: string, boxId: number, task: ITask) => {
+    const newData = JSON.parse(JSON.stringify(data));
+    let desIndex = 0,
+      sourceIndex = 0;
+    switch (action) {
+      case "Move to Plan":
+        desIndex = 0;
+        break;
+      case "Move to Doing":
+        desIndex = 1;
+        break;
+      case "Move to Completed":
+        desIndex = 2;
+        break;
+      default:
+    }
+    sourceIndex = newData[boxId].taskList.findIndex(
+      (el: ITask) => el.id === task.id
+    );
+    if (action !== "Remove") newData[desIndex].taskList.push(task);
+    newData[boxId].taskList.splice(sourceIndex, 1);
+    setData(newData);
+  };
+  const createTask = () => {
+    if (taskName.trim() === "") return;
+    const newData = JSON.parse(JSON.stringify(data));
+    let total = 0;
+    newData.forEach((el: { title: String; taskList: any[] }) => {
+      total += el.taskList.length;
+    });
+    newData[0].taskList.push({
+      taskName,
+      id: total,
+    });
+    setTaskName("");
+    setData(newData);
+  };
   // waiting for all DOM loading done
   useEffect(() => {
     setDOMLoader(true);
@@ -72,9 +111,21 @@ export default function ToDoAppPage() {
     <>
       <main className="bg-pink-200 h-screen">
         <Container className="p-5">
-          <div className="py-4">
-            <input className="py-2 pl-2 rounded-lg w-75 shadow-lg"></input>
-            <button className="mx-4 bg-black/80 text-white/80 rounded-lg p-2 active:scale-90 shadow-lg">
+          <div className="py-4 flex">
+            <input
+              className="py-2 pl-2 rounded-lg w-75 shadow-lg"
+              value={taskName}
+              onChange={(e) => {
+                setTaskName(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") createTask();
+              }}
+            ></input>
+            <button
+              className="mx-4 bg-black/80 text-white/80 rounded-lg p-2 active:scale-90 shadow-lg"
+              onClick={createTask}
+            >
               create plan
             </button>
           </div>
@@ -87,6 +138,7 @@ export default function ToDoAppPage() {
                       title={item.title}
                       taskList={item.taskList}
                       boxId={index}
+                      onTaskUpdate={updateTask}
                     />
                   ))
                 : null}

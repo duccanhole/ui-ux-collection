@@ -10,6 +10,7 @@ interface PropType {
   title: string;
   taskList: ITask[];
   boxId: number;
+  onTaskUpdate(action: string, boxId: string | number, task: ITask): any;
 }
 
 const colors = [
@@ -25,7 +26,12 @@ const colors = [
   { name: "purple", value: "#c084fc" },
 ];
 
-export default function TaskBox({ title, boxId, taskList }: PropType) {
+export default function TaskBox({
+  title,
+  boxId,
+  taskList,
+  onTaskUpdate,
+}: PropType) {
   const [color, setColor] = useState("white");
   useEffect(() => {
     if (title === "Plan") setColor("#fcd34d");
@@ -76,6 +82,7 @@ export default function TaskBox({ title, boxId, taskList }: PropType) {
         droppableId={boxId.toString()}
         type="task"
         direction="vertical"
+        isDropDisabled={false}
       >
         {taskList.map((item, index) => {
           return (
@@ -85,7 +92,11 @@ export default function TaskBox({ title, boxId, taskList }: PropType) {
               index={index}
               key={item.id.toString()}
             >
-              <TaskComponent task={item} boxId={boxId} />
+              <TaskComponent
+                task={item}
+                boxId={boxId}
+                onTaskUpdate={onTaskUpdate}
+              />
             </DragComponent>
           );
         })}

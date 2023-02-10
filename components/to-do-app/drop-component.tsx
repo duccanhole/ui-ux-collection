@@ -14,6 +14,8 @@ export default function DropComponent({ children, ...props }: PropType) {
             {...provided.droppableProps}
             {...provided.innerRef}
             ref={provided.innerRef}
+            style={{ maxHeight: "500px" }}
+            className="overflow-y-auto"
           >
             {children}
             {provided.placeholder}
