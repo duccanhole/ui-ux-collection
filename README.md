@@ -8,4 +8,5 @@
 - visual something (maze game, algorithm, ...)
 - Stock app (reference: finnhub.io)
 - Vocal Quizz (app to learn vocabulary englist)
+- Break The Bug (a tree view task help break the bug to small task)
 ...
