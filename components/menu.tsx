@@ -25,9 +25,8 @@ export default function Menu({ onClose }: { onClose: () => void }) {
       <Modal.Body className="scroll-y-auto" style={{ padding: "5%" }}>
         <Grid.Container gap={2}>
           {product.map((item, index) => (
-            <Grid xs={3}>
+            <Grid xs={3} key={index}>
               <div
-                key={index}
                 className="text-center my-4 mx-auto"
                 onClick={() => onAppClick(item)}
               >

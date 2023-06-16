@@ -5,7 +5,7 @@ import { NextPage } from "next";
 
 const Document: NextPage<any> = (props) => (
   <Html lang="en">
-    <Head>{CssBaseline.flush()}</Head>
+    <Head> {CssBaseline.flush()}</Head>
     <body>
       <Main />
       <NextScript />

@@ -29,7 +29,7 @@ export default function ChatRoom() {
         />
       ) : (
         <div className="m-auto">
-          <Image width={500} src="/chat/bloom-man-chatroom.png" />
+          <Image className="rounded-xl" width={500} src="/chat/conversation-pana.gif" />
           <div className="text-center antialiased text-lg tracking-wide font-medium text-gray-700">
             More chat, more connect.
           </div>

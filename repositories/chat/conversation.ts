@@ -5,7 +5,6 @@ import {
 import {
   IConversation,
   IConversationDetail,
-  IUser,
 } from "../../models/chat/conversation";
 
 const defaultData: IConversation = {
