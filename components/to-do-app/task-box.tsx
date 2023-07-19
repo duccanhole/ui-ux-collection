@@ -40,7 +40,7 @@ export default function TaskBox({
   }, []);
   return (
     <div
-      className={`border-4 bg-gray-100 rounded-lg shadow-xl`}
+      className={`border-4 bg-gray-200 rounded-lg shadow-xl`}
       style={{ borderColor: color }}
     >
       <div

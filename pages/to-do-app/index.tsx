@@ -113,7 +113,7 @@ export default function ToDoAppPage() {
         <Container className="p-5">
           <div className="py-4 flex">
             <input
-              className="py-2 pl-2 rounded-lg w-75 shadow-lg"
+              className="py-2 pl-2 rounded-lg w-75 shadow-lg text-white"
               value={taskName}
               onChange={(e) => {
                 setTaskName(e.target.value);
