@@ -47,7 +47,7 @@ export default function DefaultLayout({ children }: any) {
         scroll
         fullScreen
         open={modal}
-        className="bg-gray-500/75"
+        className="bg-gray-900/75"
         onClose={onHideModal}
       >
         <Menu

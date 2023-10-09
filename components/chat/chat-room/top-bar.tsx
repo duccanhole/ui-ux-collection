@@ -23,12 +23,12 @@ export default function TopBar({ user, status }: PropType) {
     router.back();
   };
   return (
-    <div className="flex bg-gray-200 py-1">
+    <div className="flex bg-sky-900 py-1 text-white">
       {isMobile ? (
         <div>
           <Button
-            className="text-black/80 mt-3"
-            size="md"
+            className="text-white mt-3"
+            size="lg"
             auto
             icon={<FiChevronLeft size={30} />}
             onPress={onGoBack}
@@ -36,7 +36,7 @@ export default function TopBar({ user, status }: PropType) {
         </div>
       ) : null}
       <div className="px-2">
-        <UserAvatar className="border-2 border-white" user={user} size="xl" />
+        <UserAvatar user={user} size="xl" />
       </div>
       <div className="grow">
         <div className="font-bold text-xl">{user.userName}</div>
@@ -46,19 +46,19 @@ export default function TopBar({ user, status }: PropType) {
       </div>
       <div className="flex">
         <Button
-          className="text-black/80 mt-3"
+          className="mt-3"
           size="md"
           auto
           icon={<FiVideo size={26} />}
         />
         <Button
-          className="text-black/80 mt-3"
+          className="mt-3"
           size="md"
           auto
           icon={<FiPhone size={26} />}
         />
         <Button
-          className="text-black/80 mt-3 mr-12"
+          className="mt-3 mr-12"
           size="md"
           auto
           icon={<FiMoreHorizontal size={26} />}

@@ -43,7 +43,7 @@ export default function ChatTabItem({ conversation }: PropType) {
           placement="bottom-right"
           size="lg"
         >
-          <UserAvatar user={conversation.from} />
+          <UserAvatar user={conversation.from} size="xl" />
         </Badge>
       </div>
       <div className="grow px-3">
@@ -53,7 +53,7 @@ export default function ChatTabItem({ conversation }: PropType) {
       <div>
         <br />
         <span
-          className={`bg-red-400 border-2 border-white/50 px-2 rounded-xl font-semibold text-red-800 float-right ${
+          className={`bg-red-500 text-white px-2 rounded-xl text-sm float-right ${
             conversation.unseen === 0 ? "hidden" : ""
           }`}
         >

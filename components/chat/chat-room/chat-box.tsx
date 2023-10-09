@@ -18,12 +18,13 @@ const SendBtn = styled("button", {
   borderRadius: "$rounded",
   cursor: "pointer",
   padding: "15%",
-  marginRight: "10px",
+  marginRight: "20px",
   "&:active": {
     transform: "translate(10px)",
   },
   "&:hover": {
     backgroundColor: "$primary",
+    color: 'white'
   },
 });
 
@@ -90,7 +91,7 @@ export default function ChatBox({ lastMess, roomId }: PropType) {
           </div>
         )}
       </div>
-      <div className="py-2">
+      <div className="py-2 px-3">
         <Input
           className="bg-white"
           bordered
