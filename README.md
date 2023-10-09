@@ -6,4 +6,5 @@
 - sound wave (for audio, recorder file) -> planing
 - 3d model (threejs,...)
 - visual something (maze game, algorithm, ...)
+- mobile simulator (android, ios) !?
 
