@@ -23,7 +23,7 @@ export default function TopBar({ user, status }: PropType) {
     router.back();
   };
   return (
-    <div className="flex bg-sky-900 py-1 text-white">
+    <div className="flex bg-sky-700 py-1 text-white">
       {isMobile ? (
         <div>
           <Button
@@ -36,13 +36,13 @@ export default function TopBar({ user, status }: PropType) {
         </div>
       ) : null}
       <div className="px-2">
-        <UserAvatar user={user} size="xl" />
+        <UserAvatar user={user} size="lg" />
       </div>
       <div className="grow">
         <div className="font-bold text-xl">{user.userName}</div>
-        <Badge color={status === "online" ? "success" : undefined}>
+        <span className={"rounded-xl text-sm px-1 " + (status === "online" ? "bg-green-500" : "bg-gray-500")}>
           {status}
-        </Badge>
+        </span>
       </div>
       <div className="flex">
         <Button

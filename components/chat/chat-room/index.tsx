@@ -18,7 +18,7 @@ function useConservation() {
 export default function ChatRoom() {
   const conversationData = useConservation();
   return (
-    <div className="flex h-full">
+    <div className="flex h-full bg-sky-50">
       {conversationData ? (
         <Room
           key={conversationData.id}

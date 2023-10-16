@@ -24,7 +24,7 @@ const SendBtn = styled("button", {
   },
   "&:hover": {
     backgroundColor: "$primary",
-    color: 'white'
+    color: "white",
   },
 });
 
@@ -75,16 +75,16 @@ export default function ChatBox({ lastMess, roomId }: PropType) {
               return (
                 <div
                   key={index}
-                  className={item.from === "other" ? "" : "flex justify-end"}
+                  className={
+                    item.from === "other" ? "" : "flex justify-end"
+                  }
                 >
-                  <Card
-                    variant="bordered"
-                    className="max-w-lg m-2 w-fit"
-                  >
-                    <Card.Body>
+                  <div className={"max-w-lg m-2 w-fit p-2 rounded-lg " + (item.from === "other" ? "bg-gray-200 rounded-tl-none" : "bg-blue-400 rounded-tr-none text-white")}>
+                    {/* <Card.Body>
                       <Text>{item.message}</Text>
-                    </Card.Body>
-                  </Card>
+                    </Card.Body> */}
+                    {item.message}
+                  </div>
                 </div>
               );
             })}

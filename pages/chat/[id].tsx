@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Room from "../../components/chat/chat-room/room";
-import { IConversation, IConversationDetail } from "../../models/chat/conversation";
+import { IConversation } from "../../models/chat/conversation";
 import ConversationRepo from "../../repositories/chat/conversation";
 
 export default function ChatIdPage() {

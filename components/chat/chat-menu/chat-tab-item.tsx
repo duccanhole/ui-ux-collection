@@ -43,7 +43,7 @@ export default function ChatTabItem({ conversation }: PropType) {
           placement="bottom-right"
           size="lg"
         >
-          <UserAvatar user={conversation.from} size="xl" />
+          <UserAvatar user={conversation.from} size="xl" className="border-white border-2" />
         </Badge>
       </div>
       <div className="grow px-3">

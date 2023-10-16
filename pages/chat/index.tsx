@@ -8,7 +8,7 @@ export default function () {
       <Head>
         <title>Chat app</title>
       </Head>
-      <main className="bg-gray-300">
+      <main>
         <div className="grid grid-cols-4">
           <div className="border-x-2 border-gray-200 max-[480px]:col-span-4 h-screen">
             <ChatMenu />
